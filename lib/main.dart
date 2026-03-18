@@ -1,8 +1,10 @@
+import 'package:expens/screens/onbording_screen.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -11,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Expenz",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "Inter",),
-      home: Scaffold(
-        body:Center(child: Text("hello"),) ,
-      ),
+      theme: ThemeData(fontFamily: "Inter"),
+      home: OnbordingScreen(),
+      
+
     );
   }
 }
