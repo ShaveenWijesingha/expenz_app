@@ -1,5 +1,5 @@
 import 'package:expens/screens/main_screen.dart';
-import 'package:expens/screens/onbording/user_service.dart';
+import 'package:expens/services/user_service.dart';
 import 'package:expens/utils/colors.dart';
 import 'package:expens/utils/constant.dart';
 import 'package:expens/widgets/custom_button.dart';
