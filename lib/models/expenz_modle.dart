@@ -1,7 +1,7 @@
 //enum for expenz category
 import 'package:flutter/material.dart';
 
-enum expenzCategory { Food, Transport, Health, Shoping, Subscription,Other }
+enum expenzCategory { Food, Transport, Health, Shoping, Subscription, Other }
 
 //category images
 final Map<expenzCategory, String> expenzCategorieImages = {
@@ -40,4 +40,30 @@ class Expenz {
     required this.time,
     required this.description,
   });
+
+  //Convert the expense object to a json object
+  Map<String, dynamic> toJSON() {
+    return {
+      'id': id,
+      'title': title,
+      'amount': amount,
+      'category': category.index,
+      'date': date.toIso8601String(),
+      'time': time.toIso8601String(),
+      'description': description,
+    };
+  }
+
+  //create an expence object from a JSON object
+  factory Expenz.fromJSON(Map<String, dynamic> json) {
+    return Expenz(
+      id: json['id'],
+      title: json['title'],
+      amount: json['amount'],
+      category: expenzCategory.values[json['category']],
+      date: DateTime.parse(json['data']),
+      time: DateTime.parse(json['time']),
+      description: json['description'],
+    );
+  }
 }
