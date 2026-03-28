@@ -1,12 +1,15 @@
 import 'package:expens/models/expenz_modle.dart';
 import 'package:expens/models/incom_modle.dart';
+import 'package:expens/services/expense_service.dart';
 import 'package:expens/utils/colors.dart';
 import 'package:expens/utils/constant.dart';
+import 'package:expens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class addNewScreen extends StatefulWidget {
-  const addNewScreen({super.key});
+  final Function(Expense)addExpense;
+  const addNewScreen({super.key, required this.addExpense});
 
   @override
   State<addNewScreen> createState() => _addNewScreenState();
@@ -438,29 +441,32 @@ class _addNewScreenState extends State<addNewScreen> {
                           ),
 
                           SizedBox(height: 30),
-                          Container(
-                            height: MediaQuery.of(context).size.height * 0.07,
-                            width: MediaQuery.of(context).size.width * 1,
-                            decoration: BoxDecoration(
-                              color: _selectedMethod == 0
+                          //submit button
+                          GestureDetector(
+                            onTap: () async {
+                              //save the expences or income data into shared pref
+                              List<Expense> loadedExpenses =
+                                  await ExpenseService().loadExpenses();
+                              //create the expense to store
+                              Expense expense = Expense(
+                                id: loadedExpenses.length + 1,
+                                title: _titleController.text,
+                                amount: _amountController.text.isEmpty
+                                    ? 0
+                                    : double.parse(_amountController.text),
+                                category: _expenceCategory,
+                                date: _selectedDate,
+                                time: _selectedTime,
+                                description: _descriptionController.text,
+                              );
+                              //add expense
+                              widget.addExpense(expense);
+                            },
+                            child: CustomButton(
+                              buttonColor: _selectedMethod == 0
                                   ? kRed.withOpacity(.9)
                                   : kGreen,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: KDefaltPadding,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Add",
-                                  style: TextStyle(
-                                    color: kWhite,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
+                              buttonName: "Add",
                             ),
                           ),
                         ],

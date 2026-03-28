@@ -23,7 +23,7 @@ final Map<expenzCategory, Color> incomeCategoryColor = {
 };
 
 //modle
-class Expenz {
+class Expense {
   final int id;
   final String title;
   final double amount;
@@ -31,7 +31,7 @@ class Expenz {
   final DateTime date;
   final DateTime time;
   final String description;
-  Expenz({
+  Expense({
     required this.id,
     required this.title,
     required this.amount,
@@ -55,8 +55,8 @@ class Expenz {
   }
 
   //create an expence object from a JSON object
-  factory Expenz.fromJSON(Map<String, dynamic> json) {
-    return Expenz(
+  factory Expense.fromJSON(Map<String, dynamic> json) {
+    return Expense(
       id: json['id'],
       title: json['title'],
       amount: json['amount'],
