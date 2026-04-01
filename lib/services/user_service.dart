@@ -48,7 +48,7 @@ class UserService {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? username = pref.getString("username");
     String? email = pref.getString("email");
-    return {"username": username!, "email": email!};
+    return {"username": username??"Guest", "email": email??"No Email Found"};
   }
 
   //remove the username and email from shared preferences

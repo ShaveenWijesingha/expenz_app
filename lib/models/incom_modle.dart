@@ -51,7 +51,7 @@ final class Income {
   });
   //Convert the income object to a json object
 
-  Map <String,dynamic> toJSON(){
+  Map<String, dynamic> toJSON() {
     return {
       'id': id,
       'title': title,
@@ -68,13 +68,12 @@ final class Income {
   factory Income.fromJSON(Map<String, dynamic> json) {
     return Income(
       id: json['id'],
-      title: json['title'],
+      title: json['title'] ?? 'No Title',
       amount: json['amount'],
       category: IncomeCategory.values[json['category']],
-      date: DateTime.parse(json['data']),
+      date: DateTime.parse(json['date']),
       time: DateTime.parse(json['time']),
-      description: json['description'],
+      description: json['description'] ?? '',
     );
   }
-  
 }

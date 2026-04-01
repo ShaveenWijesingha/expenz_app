@@ -58,12 +58,12 @@ class Expense {
   factory Expense.fromJSON(Map<String, dynamic> json) {
     return Expense(
       id: json['id'],
-      title: json['title'],
+      title: json['title']??'No Title',
       amount: json['amount'],
       category: expenzCategory.values[json['category']],
-      date: DateTime.parse(json['data']),
+      date: DateTime.parse(json['date']),
       time: DateTime.parse(json['time']),
-      description: json['description'],
+      description: json['description']??'',
     );
   }
 }
