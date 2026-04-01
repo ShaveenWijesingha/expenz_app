@@ -11,7 +11,7 @@ enum IncomeCategory {
 }
 
 //category image
-final Map<IncomeCategory, String> IncomeCategoryImagesc = {
+final Map<IncomeCategory, String> IncomeCategoryImage = {
   IncomeCategory.Freelance: "assets/images/freelance.png",
   IncomeCategory.Salary: "assets/images/salaryIncome.png",
   IncomeCategory.Business: "assets/images/businus.png",

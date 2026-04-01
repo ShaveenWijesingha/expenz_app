@@ -61,21 +61,36 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     setState(() {
       fechAllExpenses();
+      fetchAllIncomes();
     });
   }
 
-//function to dismiss an expense
+  //function to dismiss an expense
   void dismissExpense(Expense expense) {
     ExpenseService().deleteExpense(expense.id, context);
     setState(() {
       expenseList.remove(expense);
     });
   }
+
+  //function to dismiss an income
+  void dismissIncome(Income income) {
+    IncomeService().deleteIncome(income.id, context);
+    setState(() {
+      incomeList.remove(income);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //screens list
     final List<Widget> pages = [
-      transactionScreen(expenseList:expenseList,onDismissExpense:dismissExpense,),
+      transactionScreen(
+        expenseList: expenseList,
+        onDismissExpense: dismissExpense,
+        onDismissIncomes: dismissIncome,
+        incomeList: incomeList,
+      ),
       HomeScreen(),
 
       addNewScreen(addExpense: addNewExpense, addIncome: addNewIncome),
