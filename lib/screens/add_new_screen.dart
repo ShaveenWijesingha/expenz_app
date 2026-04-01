@@ -172,7 +172,7 @@ class _addNewScreenState extends State<addNewScreen> {
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.23,
                   ),
-                  height: MediaQuery.of(context).size.height * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width * 1,
                   decoration: BoxDecoration(
                     color: kWhite,

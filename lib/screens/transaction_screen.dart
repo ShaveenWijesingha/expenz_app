@@ -24,6 +24,8 @@ class transactionScreen extends StatefulWidget {
 }
 
 class _transactionScreenState extends State<transactionScreen> {
+  bool isExpanded = false;
+  bool incomeIsExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +47,7 @@ class _transactionScreenState extends State<transactionScreen> {
                   ),
                   SizedBox(height: 20),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         "Expenses",
@@ -54,13 +57,28 @@ class _transactionScreenState extends State<transactionScreen> {
                           color: kBlack,
                         ),
                       ),
-                      Icon(Icons.arrow_drop_down, color: kBlack, size: 45),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isExpanded = !isExpanded;
+                          });
+                        },
+                        child: Icon(
+                          isExpanded
+                              ? Icons.arrow_drop_down
+                              : Icons.arrow_drop_up,
+                          color: kBlack,
+                          size: 45,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20),
                   //list of expenses
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: isExpanded
+                        ? widget.expenseList.length * 105
+                        : MediaQuery.of(context).size.height * 0.35,
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -99,19 +117,39 @@ class _transactionScreenState extends State<transactionScreen> {
                   ),
                   SizedBox(height: 20),
 
-                  Text(
-                    "Incomes",
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: kBlack,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        "Incomes",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: kBlack,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            incomeIsExpanded = !incomeIsExpanded;
+                          });
+                        },
+                        child: Icon(
+                          incomeIsExpanded
+                              ? Icons.arrow_drop_down
+                              : Icons.arrow_drop_up,
+                          color: kBlack,
+                          size: 45,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 20),
 
                   //list of incomes
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.35,
+                    height: incomeIsExpanded
+                        ? widget.incomeList.length * 110
+                        : MediaQuery.of(context).size.height * 0.385,
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
