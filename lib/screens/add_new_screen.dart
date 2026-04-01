@@ -9,9 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class addNewScreen extends StatefulWidget {
-  final Function(Expense)addExpense;
-  final Function(Income)addIncome;
-  const addNewScreen({super.key, required this.addExpense, required this.addIncome});
+  final Function(Expense) addExpense;
+  final Function(Income) addIncome;
+  const addNewScreen({
+    super.key,
+    required this.addExpense,
+    required this.addIncome,
+  });
 
   @override
   State<addNewScreen> createState() => _addNewScreenState();
@@ -446,7 +450,7 @@ class _addNewScreenState extends State<addNewScreen> {
                           //submit button
                           GestureDetector(
                             onTap: () async {
-                              if (_selectedMethod != 0) {
+                              if (_selectedMethod == 0) {
                                 //adding expenses
                                 List<Expense> loadedExpenses =
                                     await ExpenseService().loadExpenses();

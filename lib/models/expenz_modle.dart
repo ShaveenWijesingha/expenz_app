@@ -13,7 +13,7 @@ final Map<expenzCategory, String> expenzCategorieImages = {
   expenzCategory.Other: "assets/images/other.png",
 };
 //category colors
-final Map<expenzCategory, Color> incomeCategoryColor = {
+final Map<expenzCategory, Color> expenzCategoryColor = {
   expenzCategory.Food: const Color.fromARGB(255, 197, 23, 55),
   expenzCategory.Transport: const Color.fromARGB(255, 11, 176, 16),
   expenzCategory.Health: const Color.fromARGB(255, 147, 8, 89),
