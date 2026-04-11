@@ -50,466 +50,455 @@ class _addNewScreenState extends State<addNewScreen> {
           ? kRed.withOpacity(.9)
           : kGreen.withOpacity(.9),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: KDefaltPadding),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: KDefaltPadding),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    decoration: BoxDecoration(
-                      color: kWhite,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _selectedMethod = 1;
-                              });
-                            },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.07,
-                              width: MediaQuery.of(context).size.width * 0.42,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: _selectedMethod == 0 ? kWhite : kGreen,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Incoms",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: _selectedMethod == 1
-                                        ? kWhite
-                                        : kBlack,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _selectedMethod = 0;
-                              });
-                            },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.07,
-                              width: MediaQuery.of(context).size.width * 0.42,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: _selectedMethod == 1 ? kWhite : kRed,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: _selectedMethod == 1
-                                        ? kBlack
-                                        : kWhite,
-                                  ),
-                                  "Expense",
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+        child: Padding(
+          padding: EdgeInsets.only(top: KDefaltPadding),
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: KDefaltPadding),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  decoration: BoxDecoration(
+                    color: kWhite,
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                ),
-                //amount feild
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: KDefaltPadding),
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.1,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                            color: kLightGrey,
-                          ),
-                          "How much? (LKR)",
-                        ),
-                        TextField(
-                          style: TextStyle(
-                            fontSize: 40,
-                            color: kWhite,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "0",
-                            border: InputBorder.none,
-                            hintStyle: TextStyle(
-                              fontSize: 50,
-                              color: kWhite,
-                              fontWeight: FontWeight.bold,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _selectedMethod = 1;
+                            });
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.42,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: _selectedMethod == 0 ? kWhite : kGreen,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Incoms",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  color: _selectedMethod == 1 ? kWhite : kBlack,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _selectedMethod = 0;
+                            });
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.42,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: _selectedMethod == 1 ? kWhite : kRed,
+                            ),
+                            child: Center(
+                              child: Text(
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  color: _selectedMethod == 1 ? kBlack : kWhite,
+                                ),
+                                "Expense",
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                //user data form
-                Container(
+              ),
+              //amount feild
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: KDefaltPadding),
+                child: Container(
                   margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.23,
+                    top: MediaQuery.of(context).size.height * 0.1,
                   ),
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  width: MediaQuery.of(context).size.width * 1,
-                  decoration: BoxDecoration(
-                    color: kWhite,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      /*Text(
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                          color: kLightGrey,
+                        ),
+                        "How much? (LKR)",
+                      ),
+                      TextField(
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: kWhite,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "0",
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            fontSize: 50,
+                            color: kWhite,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),*/
+                      SizedBox(height: 10),
+                    ],
                   ),
-                  child: Form(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          //category selector dropdown
-                          DropdownButtonFormField<Object>(
-                            hint: _selectedMethod == 1
-                                ? Text(
-                                    "Income Category",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: kGrey,
-                                    ),
-                                  )
-                                : Text(
-                                    "Expence Category",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: kGrey,
-                                    ),
+                ),
+              ),
+              //user data form
+              Container(
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.18,
+                ),
+                height: MediaQuery.of(context).size.height * 0.6,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  color: kWhite,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Form(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        //category selector dropdown
+                        DropdownButtonFormField<Object>(
+                          hint: _selectedMethod == 1
+                              ? Text(
+                                  "Income Category",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: kGrey,
                                   ),
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                                horizontal: 20,
-                              ),
+                                )
+                              : Text(
+                                  "Expence Category",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: kGrey,
+                                  ),
+                                ),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
                             ),
-                            value: getValidValue(),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+                          ),
+                          value: getValidValue(),
 
-                            items: _selectedMethod == 0
-                                ? expenzCategory.values.map((category) {
-                                    return DropdownMenuItem<Object>(
-                                      value: category,
-                                      child: Text(category.name),
-                                    );
-                                  }).toList()
-                                : IncomeCategory.values.map((category) {
-                                    return DropdownMenuItem<Object>(
-                                      value: category,
-                                      child: Text(category.name),
-                                    );
-                                  }).toList(),
+                          items: _selectedMethod == 0
+                              ? expenzCategory.values.map((category) {
+                                  return DropdownMenuItem<Object>(
+                                    value: category,
+                                    child: Text(category.name),
+                                  );
+                                }).toList()
+                              : IncomeCategory.values.map((category) {
+                                  return DropdownMenuItem<Object>(
+                                    value: category,
+                                    child: Text(category.name),
+                                  );
+                                }).toList(),
 
-                            onChanged: (value) {
-                              setState(() {
-                                selectedCategory = value;
+                          onChanged: (value) {
+                            setState(() {
+                              selectedCategory = value;
+                              _selectedMethod == 0
+                                  ? _expenceCategory = value as expenzCategory
+                                  : _incomeCategory = value as IncomeCategory;
+                              print(
                                 _selectedMethod == 0
-                                    ? _expenceCategory = value as expenzCategory
-                                    : _incomeCategory = value as IncomeCategory;
-                                print(
-                                  _selectedMethod == 0
-                                      ? _expenceCategory.name
-                                      : _incomeCategory.name,
-                                );
-                              });
-                            },
-                          ),
-                          SizedBox(height: 10),
-                          TextField(
-                            controller: _titleController,
-                            decoration: InputDecoration(
-                              hint: Text(
-                                "Title",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: kGrey,
-                                ),
-                              ),
-
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                                horizontal: 20,
+                                    ? _expenceCategory.name
+                                    : _incomeCategory.name,
+                              );
+                            });
+                          },
+                        ),
+                        SizedBox(height: 10),
+                        TextField(
+                          controller: _titleController,
+                          decoration: InputDecoration(
+                            hint: Text(
+                              "Title",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: kGrey,
                               ),
                             ),
-                          ),
-                          SizedBox(height: 10),
-                          TextField(
-                            controller: _descriptionController,
-                            decoration: InputDecoration(
-                              hint: Text(
-                                "Description",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: kGrey,
-                                ),
-                              ),
 
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                                horizontal: 20,
-                              ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
                             ),
                           ),
-                          SizedBox(height: 10),
-                          TextField(
-                            controller: _amountController,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hint: Text(
-                                "Amount",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: kGrey,
-                                ),
-                              ),
-
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                                horizontal: 20,
+                        ),
+                        SizedBox(height: 10),
+                        TextField(
+                          controller: _descriptionController,
+                          decoration: InputDecoration(
+                            hint: Text(
+                              "Description",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: kGrey,
                               ),
                             ),
+
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
                           ),
-                          SizedBox(height: 10),
-                          //date picker
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    firstDate: DateTime(2025),
-                                    lastDate: DateTime(2035),
-                                  ).then((value) {
+                        ),
+                        SizedBox(height: 10),
+                        TextField(
+                          controller: _amountController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hint: Text(
+                              "Amount",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: kGrey,
+                              ),
+                            ),
+
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        //date picker
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2025),
+                                  lastDate: DateTime(2035),
+                                ).then((value) {
+                                  if (value != null) {
+                                    setState(() {
+                                      _selectedDate = value;
+                                    });
+                                  } else {
+                                    _selectedDate = DateTime.now();
+                                  }
+                                });
+                              },
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.07,
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                decoration: BoxDecoration(
+                                  color: kMainColor.withOpacity(0.88),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: KDefaltPadding,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.calendar_month, color: kWhite),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Select Date",
+                                        style: TextStyle(
+                                          color: kWhite,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              DateFormat.yMMMEd().format(_selectedDate),
+                              style: TextStyle(
+                                color: kGrey,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        //time picker
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                ).then((value) {
+                                  setState(() {
                                     if (value != null) {
-                                      setState(() {
-                                        _selectedDate = value;
-                                      });
-                                    } else {
-                                      _selectedDate = DateTime.now();
+                                      _selectedTime = DateTime(
+                                        _selectedDate.year,
+                                        _selectedDate.month,
+                                        _selectedDate.day,
+                                        value.hour,
+                                        value.minute,
+                                      );
                                     }
                                   });
-                                },
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.07,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.45,
-                                  decoration: BoxDecoration(
-                                    color: kMainColor.withOpacity(0.88),
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: KDefaltPadding,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.calendar_month,
-                                          color: kWhite,
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Select Date",
-                                          style: TextStyle(
-                                            color: kWhite,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                DateFormat.yMMMEd().format(_selectedDate),
-                                style: TextStyle(
-                                  color: kGrey,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          //time picker
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  showTimePicker(
-                                    context: context,
-                                    initialTime: TimeOfDay.now(),
-                                  ).then((value) {
-                                    setState(() {
-                                      if (value != null) {
-                                        _selectedTime = DateTime(
-                                          _selectedDate.year,
-                                          _selectedDate.month,
-                                          _selectedDate.day,
-                                          value.hour,
-                                          value.minute,
-                                        );
-                                      }
-                                    });
-                                  });
-                                },
+                                });
+                              },
 
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.07,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.45,
-                                  decoration: BoxDecoration(
-                                    color: kYellow.withOpacity(0.88),
-                                    borderRadius: BorderRadius.circular(50),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.07,
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                decoration: BoxDecoration(
+                                  color: kYellow.withOpacity(0.88),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: KDefaltPadding,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: KDefaltPadding,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.access_time_filled,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.access_time_filled,
+                                        color: kWhite,
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Select Time",
+                                        style: TextStyle(
                                           color: kWhite,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Select Time",
-                                          style: TextStyle(
-                                            color: kWhite,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-                              Text(
-                                DateFormat.jm().format(_selectedTime),
-                                style: TextStyle(
-                                  color: kGrey,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Divider(color: kLightGrey, thickness: 5),
-                            ],
-                          ),
-
-                          SizedBox(height: 30),
-                          //submit button
-                          GestureDetector(
-                            onTap: () async {
-                              if (_selectedMethod == 0) {
-                                //adding expenses
-                                List<Expense> loadedExpenses =
-                                    await ExpenseService().loadExpenses();
-                                //create the expense to store
-                                Expense expense = Expense(
-                                  id: loadedExpenses.length + 1,
-                                  title: _titleController.text,
-                                  amount: _amountController.text.isEmpty
-                                      ? 0
-                                      : double.parse(_amountController.text),
-                                  category: _expenceCategory,
-                                  date: _selectedDate,
-                                  time: _selectedTime,
-                                  description: _descriptionController.text,
-                                );
-                                //add expense
-                                widget.addExpense(expense);
-                                //clear the field
-                                _titleController.clear();
-                                _amountController.clear();
-                                _descriptionController.clear();
-                              } else {
-                                //adding incomes
-                                List<Income> loadIncomes = await IncomeService()
-                                    .loadIncomes();
-                                //create the income to store
-                                Income income = Income(
-                                  id: loadIncomes.length + 1,
-                                  title: _titleController.text,
-                                  amount: _amountController.text.isEmpty
-                                      ? 0
-                                      : double.parse(_amountController.text),
-                                  category: _incomeCategory,
-                                  date: _selectedDate,
-                                  time: _selectedTime,
-                                  description: _descriptionController.text,
-                                );
-                                //add expense
-                                widget.addIncome(income);
-                                //clear the field
-                                _titleController.clear();
-                                _amountController.clear();
-                                _descriptionController.clear();
-                              }
-                            },
-                            child: CustomButton(
-                              buttonColor: _selectedMethod == 0
-                                  ? kRed.withOpacity(.9)
-                                  : kGreen,
-                              buttonName: "Add",
                             ),
+                            Text(
+                              DateFormat.jm().format(_selectedTime),
+                              style: TextStyle(
+                                color: kGrey,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Divider(color: kLightGrey, thickness: 5),
+                          ],
+                        ),
+
+                        SizedBox(height: 30),
+                        //submit button
+                        GestureDetector(
+                          onTap: () async {
+                            if (_selectedMethod == 0) {
+                              //adding expenses
+                              List<Expense> loadedExpenses =
+                                  await ExpenseService().loadExpenses();
+                              //create the expense to store
+                              Expense expense = Expense(
+                                id: loadedExpenses.length + 1,
+                                title: _titleController.text,
+                                amount: _amountController.text.isEmpty
+                                    ? 0
+                                    : double.parse(_amountController.text),
+                                category: _expenceCategory,
+                                date: _selectedDate,
+                                time: _selectedTime,
+                                description: _descriptionController.text,
+                              );
+                              //add expense
+                              widget.addExpense(expense);
+                              //clear the field
+                              _titleController.clear();
+                              _amountController.clear();
+                              _descriptionController.clear();
+                            } else {
+                              //adding incomes
+                              List<Income> loadIncomes = await IncomeService()
+                                  .loadIncomes();
+                              //create the income to store
+                              Income income = Income(
+                                id: loadIncomes.length + 1,
+                                title: _titleController.text,
+                                amount: _amountController.text.isEmpty
+                                    ? 0
+                                    : double.parse(_amountController.text),
+                                category: _incomeCategory,
+                                date: _selectedDate,
+                                time: _selectedTime,
+                                description: _descriptionController.text,
+                              );
+                              //add expense
+                              widget.addIncome(income);
+                              //clear the field
+                              _titleController.clear();
+                              _amountController.clear();
+                              _descriptionController.clear();
+                            }
+                          },
+                          child: CustomButton(
+                            buttonColor: _selectedMethod == 0
+                                ? kRed.withOpacity(.9)
+                                : kGreen,
+                            buttonName: "Add",
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -57,4 +57,6 @@ class UserService {
     await prefs.remove('username');
     await prefs.remove('email');
   }
+
+  
 }
