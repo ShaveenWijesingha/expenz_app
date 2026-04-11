@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         for (var i = 0; i < widget.incomeList.length; i++) {
           totalIncome += widget.incomeList[i].amount;
         }
+        
       });
     });
   }

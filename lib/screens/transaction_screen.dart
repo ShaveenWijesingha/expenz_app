@@ -38,7 +38,7 @@ class _transactionScreenState extends State<transactionScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "See your financial report",
+                    "Income and expenses history",
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
