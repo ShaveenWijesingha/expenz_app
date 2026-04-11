@@ -1,4 +1,3 @@
-
 import 'package:expens/screens/onbording_screen.dart';
 import 'package:expens/services/expense_service.dart';
 import 'package:expens/services/income_service.dart';
@@ -96,15 +95,14 @@ class _profileScreenState extends State<profileScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: kMainColor, width: 3),
-                        color: kMainColor,
+                        color: kMainColor.withOpacity(0.5),
                       ),
 
                       child: ClipRRect(
                         borderRadius: BorderRadiusGeometry.circular(100),
-                        child: Image.asset(
-                          "assets/images/user.jpg",
-                          width: 80,
-                          fit: BoxFit.cover,
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Icon(Icons.person, color: kWhite, size: 60),
                         ),
                       ),
                     ),

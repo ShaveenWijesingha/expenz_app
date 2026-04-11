@@ -135,7 +135,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: [
-                Text("Total amount", style: TextStyle(color: kGrey)),
+                Text("", style: TextStyle(color: kGrey)),
                 SizedBox(height: 8),
                 Text(
                   "",

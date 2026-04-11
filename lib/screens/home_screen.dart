@@ -44,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
         for (var i = 0; i < widget.incomeList.length; i++) {
           totalIncome += widget.incomeList[i].amount;
         }
-        
       });
     });
   }
@@ -95,10 +94,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   borderRadius: BorderRadiusGeometry.circular(
                                     100,
                                   ),
-                                  child: Image.asset(
-                                    "assets/images/user.jpg",
-                                    width: 50,
-                                    fit: BoxFit.cover,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4),
+                                    child: Icon(
+                                      Icons.person,
+                                      color: kWhite,
+                                      size: 40,
+                                    ),
                                   ),
                                 ),
                               ),
